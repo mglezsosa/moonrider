@@ -12,12 +12,22 @@ const COLORS = {
 
   YELLOW: '#fff568',
 
-  UI_ACCENT: '#08bfa2',
-  UI_ACCENT2: '#f01978'
+  UI_ACCENT: '#3A4EFF',
+  UI_ACCENT2: '#D9C3FF'
 };
 
 COLORS.schemes = {
   default: {
+    name: 'VT Rider',
+    off: '#111',
+    primary: '#3A4EFF',
+    primarybright: '#9087FF',
+    secondary: '#B4A5FF',
+    secondarybright: '#D9C3FF',
+    tertiary: COLORS.YELLOW
+  },
+
+  supermedium: {
     name: 'Super Medium',
     off: '#111',
     primary: COLORS.RED,

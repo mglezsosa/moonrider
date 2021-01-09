@@ -1,7 +1,7 @@
-function requireAll (req) { req.keys().forEach(req); }
+function requireAll(req) { req.keys().forEach(req); }
 
-console.time = () => {};
-console.timeEnd = () => {};
+console.time = () => { };
+console.timeEnd = () => { };
 
 require('../vendor/BufferGeometryUtils');
 
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /**
  * Init XHR handler to subscribe.
  */
-function initSubscribeForm () {
+function initSubscribeForm() {
   const form = document.querySelector('form');
   if (!form) { return; }
 

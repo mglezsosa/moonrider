@@ -69,13 +69,25 @@ AFRAME.registerSystem('materials', {
       vertexShader: require('./shaders/tunnel.vert.glsl'),
       fragmentShader: require('./shaders/tunnel.frag.glsl'),
       uniforms: {
-        fogColor: {value: new THREE.Color(scheme.primary)},
-        color1: {value: new THREE.Color(scheme.primary)},
-        color2: {value: new THREE.Color(scheme.secondary)},
-        color3: {value: new THREE.Color(scheme.tertiary)},
-        scale: {value: 1.0}
+        fogColor: { value: new THREE.Color(scheme.primary) },
+        color1: { value: new THREE.Color(scheme.primary) },
+        color2: { value: new THREE.Color(scheme.secondary) },
+        color3: { value: new THREE.Color(scheme.tertiary) },
+        scale: { value: 1.0 }
       },
       transparent: true
+    });
+
+    this.sigma = new THREE.ShaderMaterial({
+      vertexShader: require('./shaders/tunnel.vert.glsl'),
+      fragmentShader: require('./shaders/tunnel.frag.glsl'),
+      uniforms: {
+        fogColor: { value: new THREE.Color(scheme.primary) },
+        color1: { value: new THREE.Color(scheme.primary) },
+        color2: { value: new THREE.Color(scheme.secondary) },
+        color3: { value: new THREE.Color(scheme.tertiary) },
+        scale: { value: 1.0 }
+      }
     });
 
     this.merkaba = new THREE.MeshBasicMaterial({
@@ -93,9 +105,9 @@ AFRAME.registerSystem('materials', {
       vertexShader: require('./shaders/aurora.vert.glsl'),
       fragmentShader: require('./shaders/aurora.frag.glsl'),
       uniforms: {
-        colorPrimary: {value: new THREE.Color(scheme.primary)},
-        colorSecondary: {value: new THREE.Color(scheme.secondary)},
-        time: {value: 0}
+        colorPrimary: { value: new THREE.Color(scheme.primary) },
+        colorSecondary: { value: new THREE.Color(scheme.secondary) },
+        time: { value: 0 }
       },
       transparent: true
     });
@@ -104,10 +116,10 @@ AFRAME.registerSystem('materials', {
       vertexShader: require('./shaders/rings.vert.glsl'),
       fragmentShader: require('./shaders/rings.frag.glsl'),
       uniforms: {
-        colorPrimary: {value: new THREE.Color(scheme.primary)},
-        colorSecondary: {value: new THREE.Color(scheme.secondary)},
-        colorTertiary: {value: new THREE.Color(scheme.tertiary)},
-        time: {value: 0}
+        colorPrimary: { value: new THREE.Color(scheme.primary) },
+        colorSecondary: { value: new THREE.Color(scheme.secondary) },
+        colorTertiary: { value: new THREE.Color(scheme.tertiary) },
+        time: { value: 0 }
       },
       transparent: true,
       depthWrite: false
@@ -117,8 +129,8 @@ AFRAME.registerSystem('materials', {
       vertexShader: require('./shaders/moon.vert.glsl'),
       fragmentShader: require('./shaders/moon.frag.glsl'),
       uniforms: {
-        map: {value: new THREE.TextureLoader().load(document.getElementById('moonImg').src)},
-        tint: {value: new THREE.Color(scheme.secondarybright)}
+        map: { value: new THREE.TextureLoader().load(document.getElementById('moonImg').src) },
+        tint: { value: new THREE.Color(scheme.secondarybright) }
       },
       transparent: true
     });
@@ -128,11 +140,11 @@ AFRAME.registerSystem('materials', {
       vertexShader: require('./shaders/home.vert.glsl'),
       fragmentShader: require('./shaders/home.frag.glsl'),
       uniforms: {
-        color1: {value: new THREE.Color(scheme.primary)},
-        color2: {value: new THREE.Color(scheme.secondary)},
-        color3: {value: new THREE.Color(scheme.tertiary)},
-        src: {value: new THREE.TextureLoader().load(document.getElementById('homeShadowImg').src)},
-        time: {value: 0}
+        color1: { value: new THREE.Color(scheme.primary) },
+        color2: { value: new THREE.Color(scheme.secondary) },
+        color3: { value: new THREE.Color(scheme.tertiary) },
+        src: { value: new THREE.TextureLoader().load(document.getElementById('homeShadowImg').src) },
+        time: { value: 0 }
       },
       transparent: true
     });
@@ -143,17 +155,17 @@ AFRAME.registerSystem('materials', {
     weaponTexture.wrapS = THREE.RepeatWrapping;
     weaponTexture.wrapT = THREE.RepeatWrapping;
     weaponTexture.repeat.set(2, 2);
-    weaponTexture.magFilter =  THREE.NearestFilter;
+    weaponTexture.magFilter = THREE.NearestFilter;
     this.textureList.push(weaponTexture);
 
     this.rightWeapon = new THREE.ShaderMaterial({
       vertexShader: require('./shaders/weapon.vert.glsl'),
       fragmentShader: require('./shaders/weapon.frag.glsl'),
       uniforms: {
-        src: {value: weaponTexture},
-        color: {value: new THREE.Color(scheme.secondary)},
-        thickness: {value: 1.6},
-        time: {value: 0}
+        src: { value: weaponTexture },
+        color: { value: new THREE.Color(scheme.secondary) },
+        thickness: { value: 1.6 },
+        time: { value: 0 }
       },
       transparent: true,
       blending: THREE.AdditiveBlending
@@ -163,10 +175,10 @@ AFRAME.registerSystem('materials', {
       vertexShader: require('./shaders/weapon.vert.glsl'),
       fragmentShader: require('./shaders/weapon.frag.glsl'),
       uniforms: {
-        src: {value: weaponTexture},
-        color: {value: new THREE.Color(scheme.primary)},
-        thickness: {value: 1.6},
-        time: {value: 0}
+        src: { value: weaponTexture },
+        color: { value: new THREE.Color(scheme.primary) },
+        thickness: { value: 1.6 },
+        time: { value: 0 }
       },
       transparent: true,
       blending: THREE.AdditiveBlending
@@ -176,9 +188,9 @@ AFRAME.registerSystem('materials', {
       vertexShader: require('./shaders/flat.vert.glsl'),
       fragmentShader: require('./shaders/fistWeapon.frag.glsl'),
       uniforms: {
-        src: {value: weaponTexture},
-        color: {value: new THREE.Color(scheme.primary)},
-        time: {value: 0}
+        src: { value: weaponTexture },
+        color: { value: new THREE.Color(scheme.primary) },
+        time: { value: 0 }
       },
       side: THREE.DoubleSide,
       transparent: true,
@@ -189,9 +201,9 @@ AFRAME.registerSystem('materials', {
       vertexShader: require('./shaders/flat.vert.glsl'),
       fragmentShader: require('./shaders/fistWeapon.frag.glsl'),
       uniforms: {
-        src: {value: weaponTexture},
-        color: {value: new THREE.Color(scheme.secondary)},
-        time: {value: 0}
+        src: { value: weaponTexture },
+        color: { value: new THREE.Color(scheme.secondary) },
+        time: { value: 0 }
       },
       side: THREE.DoubleSide,
       transparent: true,
@@ -238,7 +250,7 @@ AFRAME.registerSystem('materials', {
       transparent: true
     });
 
-    this.beat = new THREE.MeshLambertMaterial({map: this.beatsTexture, transparent: true});
+    this.beat = new THREE.MeshLambertMaterial({ map: this.beatsTexture, transparent: true });
     this.blueBeatPieces = new THREE.MeshLambertMaterial({
       map: this.beatsTexture,
       color: scheme.secondary,
@@ -307,9 +319,9 @@ AFRAME.registerSystem('materials', {
     this.arrowBluePlume = new THREE.ShaderMaterial({
       vertexShader: require('./shaders/plume.vert.glsl'),
       fragmentShader: require('./shaders/plume.frag.glsl'),
-      uniforms : {
-        color: {value: new THREE.Color(scheme.secondary)},
-        src: {value: plumeTexture}
+      uniforms: {
+        color: { value: new THREE.Color(scheme.secondary) },
+        src: { value: plumeTexture }
       },
       transparent: true,
       depthTest: false,
@@ -318,9 +330,9 @@ AFRAME.registerSystem('materials', {
     this.arrowRedPlume = new THREE.ShaderMaterial({
       vertexShader: require('./shaders/plume.vert.glsl'),
       fragmentShader: require('./shaders/plume.frag.glsl'),
-      uniforms : {
-        color: {value: new THREE.Color(scheme.primary)},
-        src: {value: plumeTexture}
+      uniforms: {
+        color: { value: new THREE.Color(scheme.primary) },
+        src: { value: plumeTexture }
       },
       transparent: true,
       depthTest: false,
@@ -329,9 +341,9 @@ AFRAME.registerSystem('materials', {
     this.dotBluePlume = new THREE.ShaderMaterial({
       vertexShader: require('./shaders/plume.vert.glsl'),
       fragmentShader: require('./shaders/plume.frag.glsl'),
-      uniforms : {
-        color: {value: new THREE.Color(scheme.secondary)},
-        src: {value: plumeTexture}
+      uniforms: {
+        color: { value: new THREE.Color(scheme.secondary) },
+        src: { value: plumeTexture }
       },
       transparent: true,
       depthTest: false,
@@ -340,9 +352,9 @@ AFRAME.registerSystem('materials', {
     this.dotRedPlume = new THREE.ShaderMaterial({
       vertexShader: require('./shaders/plume.vert.glsl'),
       fragmentShader: require('./shaders/plume.frag.glsl'),
-      uniforms : {
-        color: {value: new THREE.Color(scheme.primary)},
-        src: {value: plumeTexture}
+      uniforms: {
+        color: { value: new THREE.Color(scheme.primary) },
+        src: { value: plumeTexture }
       },
       transparent: true,
       depthTest: false,
@@ -352,8 +364,8 @@ AFRAME.registerSystem('materials', {
       vertexShader: require('./shaders/plume.vert.glsl'),
       fragmentShader: require('./shaders/plume.frag.glsl'),
       uniforms: {
-        color: {value: new THREE.Color(scheme.tertiary)},
-        src: {value: plumeTexture}
+        color: { value: new THREE.Color(scheme.tertiary) },
+        src: { value: plumeTexture }
       },
       transparent: true,
       depthTest: false,
@@ -369,10 +381,10 @@ AFRAME.registerSystem('materials', {
       vertexShader: require('./shaders/tube.vert.glsl'),
       fragmentShader: require('./shaders/tube.frag.glsl'),
       uniforms: {
-        time: {value: 0},
-        opacity: {value: 0},
-        src: {value: tubeTexture},
-        color: {value: tubeColorTexture}
+        time: { value: 0 },
+        opacity: { value: 0 },
+        src: { value: tubeTexture },
+        color: { value: tubeColorTexture }
       },
       transparent: true,
       depthTest: false,
@@ -386,11 +398,11 @@ AFRAME.registerSystem('materials', {
       vertexShader: require('./shaders/handstartrail.vert.glsl'),
       fragmentShader: require('./shaders/handstartrail.frag.glsl'),
       uniforms: {
-        colorPrimary: {value: new THREE.Color(scheme.primary)},
-        colorSecondary: {value: new THREE.Color(scheme.secondary)},
-        colorTertiary: {value: new THREE.Color(scheme.tertiary)},
-        pulse: {value: 0},
-        src: {value: trailTexture}
+        colorPrimary: { value: new THREE.Color(scheme.primary) },
+        colorSecondary: { value: new THREE.Color(scheme.secondary) },
+        colorTertiary: { value: new THREE.Color(scheme.tertiary) },
+        pulse: { value: 0 },
+        src: { value: trailTexture }
       },
       transparent: true,
       depthTest: false,
@@ -451,6 +463,10 @@ AFRAME.registerSystem('materials', {
     set(this.tunnel, 'color1', scheme.primary);
     set(this.tunnel, 'color2', scheme.secondary);
     set(this.tunnel, 'color3', scheme.tertiary);
+    set(this.sigma, 'fogColor', scheme.primary);
+    set(this.sigma, 'color1', scheme.primary);
+    set(this.sigma, 'color2', scheme.secondary);
+    set(this.sigma, 'color3', scheme.tertiary);
 
     this.generateBeatsTexture();
     // this.generateCutFxTexture();
@@ -629,9 +645,9 @@ AFRAME.registerSystem('materials', {
 
 AFRAME.registerComponent('materials', {
   schema: {
-    animate: {default: true},
-    name: {default: ''},
-    recursive: {default: true}
+    animate: { default: true },
+    name: { default: '' },
+    recursive: { default: true }
   },
 
   update: function () {
@@ -692,7 +708,7 @@ AFRAME.registerComponent('materials-color-menu', {
   }
 });
 
-function set (mat, name, color) {
+function set(mat, name, color) {
   auxColor.set(color);
   if (mat.uniforms) {
     mat.uniforms[name].value.x = auxColor.r;
@@ -703,12 +719,12 @@ function set (mat, name, color) {
   }
 }
 
-function canvasFill (ctx, col, x, y, width, height) {
+function canvasFill(ctx, col, x, y, width, height) {
   ctx.fillStyle = col;
   ctx.fillRect(x, y, width, height);
 }
 
-function canvasGradient (ctx, col1, col2, x, y, width, height) {
+function canvasGradient(ctx, col1, col2, x, y, width, height) {
   let gradient;
   if (width > height) {
     gradient = ctx.createLinearGradient(0, 0, width, 0);
