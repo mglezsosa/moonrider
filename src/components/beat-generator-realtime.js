@@ -161,7 +161,21 @@ AFRAME.registerComponent('beat-generator-realtime', {
         this.preloadTime = 0;
         this.beatData._events.sort(lessThan);
         this.beatData._obstacles.sort(lessThan);
-        this.beatData._notes.sort(lessThan);
+        const notes = this.beatData._notes;
+        notes.sort(lessThan);
+        notes.forEach((note, index) => {
+            note._lineIndex = (Math.round(Math.random() * 3) | 0) % 3;
+            note._lineLayer = (Math.round(Math.random() * 3) | 0) % 3;
+            const prevNote = notes[index - 1];
+            if (
+                index > 0 &&
+                prevNote._time == note._time &&
+                prevNote._lineIndex == note._lineIndex &&
+                prevNote._lineLayer == note._lineLayer
+            ) {
+                note._lineLayer = note._lineLayer + 1 % 3;
+            }
+        })
         this.bpm = this.beatData._beatsPerMinute;
 
         // Some events have negative time stamp to initialize the stage.
